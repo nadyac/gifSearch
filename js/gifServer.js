@@ -9,7 +9,7 @@ http.createServer(function(req, res){
 
   if (action !== null && action !== "" && action !== "/") {
     console.log(action);
-     var img = fs.readFileSync('../gifs/spiriteAway.gif');
+     var img = fs.readFileSync('../' +action);
      res.writeHead(200, {'Content-Type': 'image/gif' });
      res.end(img, 'binary');
   } else { 

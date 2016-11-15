@@ -10,17 +10,17 @@
 			<div class="form-group" style="margin-left:500px; margin-top:100px;">
   				<label class="control-label" for="focusedInput">Search:&nbsp</label>
   				<input class="form-control" id="focusedInput" type="text" value="Type here..." style="width:350px;height:35px;">
-  				<button type="button" onclick="location.href = 'http://localhost:8080/spirite';">Search</button>
+  				<button type="button" onclick=submit()>Search</button>
 			</div>
 		</div>
 		<div class="resultsView" style="overflow-y: scroll;position:relative;">
-			<img src="localhost:8080/gifs/spiriteAway.gif" width="50%" height="50%" viewBox="0 0 100 100" />
+
 		</div>
 
 		<script>
 		function submit(){
 			var input = document.getElementById("focusedInput").value;
-
+			location.href='http://localhost:8080/gifs/'+input+'.gif';
 			console.log(input);
 		}
 		</script>
