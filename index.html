@@ -22,8 +22,6 @@
 			var input = document.getElementById("focusedInput").value;
 			var url='http://localhost:8080/gifs/'+input+'.gif';
 
-			console.log(url);
-			 //location.href=url;
 			 var xhttp = new XMLHttpRequest();
 			 xhttp.onload = function() {
 			 	var source = "data:image/gif;base64," + xhttp.responseText;
@@ -31,6 +29,7 @@
 			 	imageTag.src=source;
 
 			 }
+			 /* make request to server using image url */
 			 xhttp.open("GET", url, true);
 			 xhttp.send();
 			
