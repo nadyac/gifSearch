@@ -13,11 +13,16 @@
   				<button type="button" onclick=submit()>Search</button>
 			</div>
 		</div>
-		<div class="resultsView" style="overflow-y: scroll;position:relative; margin-left:520px">
+		<div class="resultsView" style="margin-left:520px">
 			<img id="imgResult">
 		</div>
 
 		<script>
+		/* Fetches gifs from the server storage place (currently localhost)
+		* uses an XMLHttpRequest object provided by the window to get the gif data.
+		* Gets the image tag from the DOM body and sets its src attribute to be
+		* the location of the image (if it exists on the server).
+		*/
 		function submit(){
 			var input = document.getElementById("focusedInput").value;
 			var url='http://localhost:8080/gifs/'+input+'.gif';
@@ -27,12 +32,10 @@
 			 	var source = "data:image/gif;base64," + xhttp.responseText;
 			 	var imageTag = document.getElementById("imgResult");
 			 	imageTag.src=source;
-
 			 }
 			 /* make request to server using image url */
 			 xhttp.open("GET", url, true);
 			 xhttp.send();
-			
 		}
 		</script>
 	</body>
