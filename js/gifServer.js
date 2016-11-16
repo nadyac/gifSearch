@@ -8,12 +8,14 @@ http.createServer(function(req, res){
   var action = request.pathname;
 
   if (action !== null && action !== "" && action !== "/") {
-    console.log(action);
-     var img = fs.readFileSync('../' +action);
-     res.writeHead(200, {'Content-Type': 'image/gif' });
-     res.end(img, 'binary');
-  } else { 
-     res.writeHead(200, {'Content-Type': 'text/plain' });
-     res.end('Hello World \n');
+     console.log(action);
+     try{
+        var img = fs.readFileSync('../' +action)
+        res.writeHead(200, {'Content-Type': 'image/gif' });
+        res.end(img, 'binary');
+     } catch (err){
+        res.writeHead(404, {'Content-Type': 'text/html' });
+        res.end('Gif not found');
+     }
   }
 }).listen(8080, '127.0.0.1');
